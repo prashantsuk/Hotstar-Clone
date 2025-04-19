@@ -41,8 +41,8 @@ pipeline{
         }
         stage('OWASP FS SCAN') {
             steps {
-                 //dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
-                // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
                 sh 'pwd'
             }
         }
@@ -74,7 +74,7 @@ pipeline{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh 'docker-scout quickview prashant680844/myntra:latest'
                        sh 'docker-scout cves prashant680844/myntra:latest'
-                       sh 'docker-scout recommendations prashant680844/myntra:latest'
+                       //sh 'docker-scout recommendations prashant680844/myntra:latest'
                    }
                 }   
             }
