@@ -72,8 +72,8 @@ pipeline{
             steps {
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                       sh 'docker-scout quickview prashant680844/myntra:latest'
-                       sh 'docker-scout cves prashant680844/myntra:latest'
+                       //sh 'docker-scout quickview prashant680844/myntra:latest'
+                       //sh 'docker-scout cves prashant680844/myntra:latest'
                        //sh 'docker-scout recommendations prashant680844/myntra:latest'
                    }
                 }   
